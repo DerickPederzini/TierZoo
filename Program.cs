@@ -17,6 +17,8 @@ builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<Tier
 
 // Add services to the container.
 
+builder.Services.AddScoped<SignInService>();
+
 builder.Services.AddControllers().AddNewtonsoftJson(opt => { opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore; });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
