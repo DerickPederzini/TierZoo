@@ -15,5 +15,7 @@ public class Species
 
     public virtual ICollection<Genre> Genre { get; set; }
 
-    //public virtual ICollection<Perk> perks { get; set; }
+    public virtual ICollection<Perk> perks { get; set; }
+
+    public virtual ICollection<User> Users { get; set; }
 }

@@ -20,5 +20,7 @@ public class Perk
     public int SpeciesId { get; set; }
     public virtual Species Species { get; set; }
 
+    public virtual ICollection<User> users { get; set; }
+
 
 }

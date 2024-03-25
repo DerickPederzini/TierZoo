@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using TierZooAPI.Data;
-using TierZooAPI.Data.DTOs;
 using TierZooAPI.Models;
 using TierZooAPI.Services;
 
@@ -14,17 +13,11 @@ builder.Services.AddDbContext<TierZooContext>(opts => opts.UseLazyLoadingProxies
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+builder.Services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<TierZooContext>().AddDefaultTokenProviders();
 
 // Add services to the container.
 
 builder.Services.AddControllers().AddNewtonsoftJson(opt => { opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore; });
-
-builder.Services.AddIdentity<User, IdentityRole>()
-    .AddEntityFrameworkStores<UserContext>()
-    .AddDefaultTokenProviders();
-
-builder.Services.AddScoped<UserService>();
-
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

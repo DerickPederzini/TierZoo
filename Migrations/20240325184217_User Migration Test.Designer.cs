@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TierZooAPI.Data;
 
@@ -10,9 +11,11 @@ using TierZooAPI.Data;
 namespace TierZooAPI.Migrations
 {
     [DbContext(typeof(TierZooContext))]
-    partial class TierZooContextModelSnapshot : ModelSnapshot
+    [Migration("20240325184217_User Migration Test")]
+    partial class UserMigrationTest
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -186,7 +189,7 @@ namespace TierZooAPI.Migrations
 
                     b.HasIndex("SpeciesId");
 
-                    b.ToTable("Genre", (string)null);
+                    b.ToTable("Genre");
                 });
 
             modelBuilder.Entity("TierZooAPI.Models.Perk", b =>
@@ -212,7 +215,7 @@ namespace TierZooAPI.Migrations
 
                     b.HasIndex("SpeciesId");
 
-                    b.ToTable("Perk", (string)null);
+                    b.ToTable("Perk");
                 });
 
             modelBuilder.Entity("TierZooAPI.Models.Species", b =>
@@ -231,7 +234,7 @@ namespace TierZooAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Species", (string)null);
+                    b.ToTable("Species");
                 });
 
             modelBuilder.Entity("TierZooAPI.Models.User", b =>
